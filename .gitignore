@@ -8,3 +8,8 @@ backups/
 *_backup.html
 *.before-branding
 *.logo-backup
+
+# Temporary editor files
+*.swp
+*.swo
+*~
