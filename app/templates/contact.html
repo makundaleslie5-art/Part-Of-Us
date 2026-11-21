@@ -1,332 +1,143 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "base.html" %}
+{% block title %}Contact Us | pART of US CBO{% endblock %}
+{% block description %}Get in touch with pART of US CBO in Rongai, Nakuru, Kenya.{% endblock %}
 
-    <title>Contact Us | Part Of Us CBO</title>
-    <meta name="description" content="Get in touch with Part Of Us CBO. Together We Grow.">
+{% block extra_head %}
+<style>
+.contact-hero {
+    padding: 75px 8%;
+    text-align: center;
+    color: white;
+    background: linear-gradient(120deg, #193f29, #70452d);
+}
+.contact-hero h1 {
+    color: #f2c94c;
+    font-family: 'Patrick Hand', cursive;
+    font-size: clamp(40px, 6vw, 58px);
+}
+.contact-section {
+    padding: 65px 8%;
+    background: #fffaf0;
+    text-align: center;
+}
+.contact-section h2,
+.contact-details h2 {
+    color: #285c35;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 36px;
+}
+.contact-section p {
+    color: #666;
+    margin: 10px auto 25px;
+}
+.contact-details {
+    background: #193f29;
+    color: white;
+    padding: 60px 8%;
+    text-align: center;
+}
+.contact-details h2 { color: #f2c94c; }
+.details-container {
+    max-width: 1000px;
+    margin: 35px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+.detail-card {
+    padding: 25px 15px;
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 12px;
+}
+.detail-card i {
+    font-size: 27px;
+    color: #f2c94c;
+    margin-bottom: 14px;
+}
+.detail-card h3 { margin-bottom: 10px; }
+.detail-card a,
+.detail-card span {
+    color: white;
+    overflow-wrap: anywhere;
+}
+.detail-card a:hover { color: #f2c94c; }
+.contact-social-heading {
+    margin-top: 40px;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 30px;
+    color: #f2c94c;
+}
+.contact-social-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 17px;
+    margin-top: 22px;
+}
+.contact-social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(255,255,255,.5);
+    border-radius: 50%;
+    color: white;
+    font-size: 21px;
+}
+.contact-social-links a:hover {
+    background: #f2c94c;
+    color: #193f29;
+}
+@media(max-width:750px) {
+    .details-container { grid-template-columns: 1fr; }
+}
+</style>
+{% endblock %}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Patrick+Hand&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="/static/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
-    <style>
-        .contact-hero {
-            background: linear-gradient(120deg, #285c35, #70452d);
-            color: white;
-            padding: 75px 8%;
-            text-align: center;
-        }
-
-        .contact-hero h1 {
-            font-family: 'Patrick Hand', cursive;
-            font-size: 52px;
-            margin-bottom: 12px;
-        }
-
-        .contact-section {
-            padding: 65px 8%;
-            background: #fffaf0;
-        }
-
-        .contact-layout {
-            max-width: 850px;
-            margin: auto;
-        }
-
-        .contact-form {
-            background: white;
-            padding: 38px;
-            border-radius: 14px;
-            box-shadow: 0 5px 25px rgba(0,0,0,.07);
-        }
-
-        .contact-form h2,
-        .contact-details h2 {
-            color: #285c35;
-            font-family: 'Patrick Hand', cursive;
-            font-size: 34px;
-            margin-bottom: 20px;
-        }
-
-        .contact-form label {
-            display: block;
-            margin: 15px 0 6px;
-            font-weight: 700;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 13px;
-            border: 1px solid #ddd;
-            border-radius: 7px;
-            font: inherit;
-            box-sizing: border-box;
-        }
-
-        .contact-form textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .contact-form button {
-            margin-top: 20px;
-            padding: 14px 28px;
-            background: #285c35;
-            color: white;
-            border: none;
-            border-radius: 7px;
-            font: inherit;
-            font-weight: 800;
-            cursor: pointer;
-        }
-
-        .contact-form button:hover {
-            background: #70452d;
-        }
-
-        .contact-details {
-            background: #193f29;
-            color: white;
-            padding: 60px 8%;
-            text-align: center;
-        }
-
-        .contact-details h2 {
-            color: #f2c94c;
-        }
-
-        .contact-details > p {
-            margin-bottom: 30px;
-        }
-
-        .details-container {
-            max-width: 1000px;
-            margin: 35px auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .detail-card {
-            padding: 25px 15px;
-            border: 1px solid rgba(255,255,255,.2);
-            border-radius: 12px;
-        }
-
-        .detail-card i {
-            font-size: 27px;
-            color: #f2c94c;
-            margin-bottom: 14px;
-        }
-
-        .detail-card h3 {
-            margin-bottom: 10px;
-        }
-
-        .detail-card a,
-        .detail-card span {
-            color: white;
-            text-decoration: none;
-            overflow-wrap: anywhere;
-        }
-
-        .detail-card a:hover {
-            color: #f2c94c;
-        }
-
-        .social-heading {
-            margin-top: 45px;
-            font-family: 'Patrick Hand', cursive;
-            font-size: 30px;
-            color: #f2c94c;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 17px;
-            margin-top: 22px;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 48px;
-            height: 48px;
-            border: 1px solid rgba(255,255,255,.5);
-            border-radius: 50%;
-            color: white;
-            font-size: 21px;
-            text-decoration: none;
-            transition: .3s;
-        }
-
-        .social-links a:hover {
-            background: #f2c94c;
-            color: #193f29;
-            transform: translateY(-4px);
-        }
-
-        .contact-footer {
-            background: #102c1c;
-            color: white;
-            padding: 23px;
-            text-align: center;
-        }
-
-        @media(max-width: 750px) {
-            .contact-hero h1 {
-                font-size: 40px;
-            }
-
-            .details-container {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-form {
-                padding: 25px;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-<header class="site-header">
-    <div class="container nav-container">
-         <a href="/" class="logo">
-    <img src="/static/images/part-of-us-logo.jpeg"
-         alt="Part Of Us - Together We Grow">
-</a>
-        <nav class="navigation">
-            <a href="/">Home</a>
-            <a href="/#about">About Us</a>
-            <a href="/#programmes">Our Programmes</a>
-            <a href="/#impact">Our Impact</a>
-            <a href="/contact">Contact</a>
-        </nav>
-
-        <a href="/#involved" class="nav-button">Get Involved</a>
-    </div>
-</header>
-
+{% block content %}
 <main>
+    <section class="contact-hero">
+        <h1>Let's Connect</h1>
+        <p>We would love to hear from you. Your voice matters.</p>
+    </section>
 
-<section class="contact-hero">
-    <h1>Let's Connect</h1>
-    <p>We would love to hear from you. Your voice matters.</p>
-</section>
+    <section class="contact-section">
+        <h2>We'd Love to Hear From You</h2>
+        <p>Have a question, an idea or want to work with us? Reach out. We would love to hear from you.</p>
+        <a class="btn" href="mailto:atpartofus@gmail.com">Send Us an Email</a>
+    </section>
 
-<section class="contact-section">
-    <div class="contact-layout">
+    <section class="contact-details">
+        <h2>CONTACT US</h2>
+        <p>We are always happy to connect. Reach out and let's grow together.</p>
 
-        <div class="contact-form">
-            <h2>Send Us a Message</h2>
-            <p>Have a question, an idea or want to work with us? Reach out. We would love to hear from you.</p>
-
-            <form action="/contact" method="POST">
-
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="subject">Subject</label>
-                <input type="text" id="subject" name="subject" required>
-
-                <label for="message">Your Message</label>
-                <textarea id="message" name="message" required></textarea>
-
-                <button type="submit">
-                    Send Message <i class="fa-solid fa-paper-plane"></i>
-                </button>
-
-            </form>
+        <div class="details-container">
+            <div class="detail-card">
+                <i class="fa-solid fa-phone"></i>
+                <h3>Call Us</h3>
+                <a href="tel:+254708097721">0708097721</a>
+            </div>
+            <div class="detail-card">
+                <i class="fa-solid fa-envelope"></i>
+                <h3>Email Us</h3>
+                <a href="mailto:atpartofus@gmail.com">atpartofus@gmail.com</a>
+            </div>
+            <div class="detail-card">
+                <i class="fa-solid fa-location-dot"></i>
+                <h3>Find Us</h3>
+                <span>Rongai, Nakuru, Kenya</span>
+            </div>
         </div>
 
-    </div>
-</section>
-
-<section class="contact-details" id="contact-details">
-
-    <h2>CONTACT US</h2>
-    <p>We are always happy to connect. Reach out and let's grow together.</p>
-
-    <div class="details-container">
-
-        <div class="detail-card">
-            <i class="fa-solid fa-phone"></i>
-            <h3>Call Us</h3>
-            <a href="tel:0708097721">0708097721</a>
+        <h3 class="contact-social-heading">Connect With Us</h3>
+        <div class="contact-social-links">
+            <a href="https://www.facebook.com/partofusKE" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/_p_art_of_us/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@atpartofus" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://x.com/atpartofus" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.threads.net/@_p_art_of_us" target="_blank" rel="noopener noreferrer" aria-label="Threads"><i class="fa-brands fa-threads"></i></a>
         </div>
-
-        <div class="detail-card">
-            <i class="fa-solid fa-envelope"></i>
-            <h3>Email Us</h3>
-            <a href="mailto:atpartofus@gmail.com">atpartofus@gmail.com</a>
-        </div>
-
-        <div class="detail-card">
-            <i class="fa-solid fa-location-dot"></i>
-            <h3>Our Location</h3>
-            <span>Rongai, Nakuru, Kenya</span>
-        </div>
-
-    </div>
-
-    <h3 class="social-heading">Follow Our Journey</h3>
-    <p>Connect with Part Of Us on social media.</p>
-
-    <div class="social-links">
-
-        <a href="https://www.tiktok.com/@atpartofus"
-           target="_blank" rel="noopener noreferrer"
-           aria-label="TikTok">
-            <i class="fa-brands fa-tiktok"></i>
-        </a>
-
-        <a href="https://www.instagram.com/_p_art_of_us/"
-           target="_blank" rel="noopener noreferrer"
-           aria-label="Instagram">
-            <i class="fa-brands fa-instagram"></i>
-        </a>
-
-        <a href="https://www.facebook.com/partofusKE"
-           target="_blank" rel="noopener noreferrer"
-           aria-label="Facebook">
-            <i class="fa-brands fa-facebook-f"></i>
-        </a>
-
-        <a href="https://x.com/atpartofus"
-           target="_blank" rel="noopener noreferrer"
-           aria-label="X">
-            <i class="fa-brands fa-x-twitter"></i>
-        </a>
-
-        <a href="https://www.threads.net/@_p_art_of_us"
-           target="_blank" rel="noopener noreferrer"
-           aria-label="Threads">
-            <i class="fa-brands fa-threads"></i>
-        </a>
-
-    </div>
-
-</section>
-
+    </section>
 </main>
-
-<footer class="contact-footer">
-    <p>© 2026 Part Of Us CBO. Together We Grow.</p>
-</footer>
-
-</body>
-</html>
+{% endblock %}

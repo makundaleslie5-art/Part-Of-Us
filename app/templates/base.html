@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% block description %}pART of US CBO - Community, Health and Art.{% endblock %}">
+    <title>{% block title %}pART of US CBO | COMMUNITY, HEALTH AND ART{% endblock %}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container nav-container">
+        <a href="/" class="logo">
+            <img src="/static/images/part-of-us-logo.jpeg" alt="Part Of Us CBO Logo">
+            <span class="brand-name">
+                <span class="brand-p">p</span><span class="brand-art">ART</span>
+                <span class="brand-of">of</span><span class="brand-us">US</span>
+                <small>COMMUNITY, HEALTH AND ART</small>
+            </span>
+        </a>
+
+        <nav class="navigation" aria-label="Main navigation">
+            <a href="/" {% if active_page == 'home' %}aria-current="page" class="active-link"{% endif %}>Home</a>
+            <a href="/about" {% if active_page == 'about' %}aria-current="page" class="active-link"{% endif %}>About Us</a>
+            <a href="/programmes" {% if active_page == 'programmes' %}aria-current="page" class="active-link"{% endif %}>Our Programmes</a>
+            <a href="/impact" {% if active_page == 'impact' %}aria-current="page" class="active-link"{% endif %}>Our Impact</a>
+            <a href="/get-involved" {% if active_page == 'involved' %}aria-current="page" class="active-link"{% endif %}>Get Involved</a>
+            <a href="/contact" {% if active_page == 'contact' %}aria-current="page" class="active-link"{% endif %}>Contact</a>
+        </nav>
+    </div>
+</header>
+
+{% block content %}{% endblock %}
+
+<footer>
+    <div class="container footer-content">
+        <div class="footer-brand">
+            <h2>pART of US</h2>
+            <p>COMMUNITY, HEALTH AND ART.</p>
+            <p>Promoting well-being. Empowering communities.</p>
+        </div>
+
+        <div>
+            <h3>Explore</h3>
+            <a href="/">Home</a>
+            <a href="/about">About Us</a>
+            <a href="/programmes">Our Programmes</a>
+            <a href="/impact">Our Impact</a>
+        </div>
+
+        <div>
+            <h3>Get Involved</h3>
+            <a href="/get-involved">Volunteer</a>
+            <a href="/get-involved">Partner With Us</a>
+            <a href="/contact">Contact Us</a>
+        </div>
+
+        <div class="footer-contact">
+            <h3>Contact Us</h3>
+            <p><i class="fa-solid fa-phone"></i><a href="tel:+254708097721">+254708097721</a></p>
+            <p><i class="fa-solid fa-envelope"></i><a href="mailto:atpartofus@gmail.com">atpartofus@gmail.com</a></p>
+            <p><i class="fa-solid fa-location-dot"></i> Rongai, Nakuru, Kenya</p>
+        </div>
+    </div>
+
+    <div class="footer-social">
+        <h3>Connect With Us</h3>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/partofusKE" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/_p_art_of_us/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@atpartofus" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://x.com/atpartofus" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.threads.net/@_p_art_of_us" target="_blank" rel="noopener noreferrer" aria-label="Threads"><i class="fa-brands fa-threads"></i></a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 pART of US CBO. All Rights Reserved.</p>
+        <p>COMMUNITY, HEALTH AND ART.</p>
+    </div>
+</footer>
+
+<script src="/static/js/main.js"></script>
+</body>
+</html>
