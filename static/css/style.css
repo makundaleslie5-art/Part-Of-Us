@@ -5,12 +5,13 @@
 ================================= */
 
 :root {
-    --green: #285c35;
-    --deep-green: #285c35;
-    --brown: #70452d;
-    --yellow: #f2c94c;
-    --red: #c7473b;
-    --cream: #fffaf0;
+    --green: #013220;
+    --deep-green: #006400;
+    --brown: #013220;
+    --yellow: #F5F5DC;
+    --red: #FF5349;
+    --orange: #FF4500;
+    --cream: #F5F5DC;
     --white: #ffffff;
     --dark: #252525;
     --muted: #666666;
@@ -149,9 +150,9 @@ a {
     align-items: center;
     background:
         linear-gradient(110deg,
-        rgba(25,63,41,0.96),
-        rgba(40,92,53,0.84),
-        rgba(112,69,45,0.78));
+        rgba(1,50,32,0.97),
+        rgba(0,100,0,0.88),
+        rgba(1,50,32,0.82));
     color: white;
     padding: 90px 0;
 }
@@ -277,6 +278,20 @@ a {
     margin-top: 10px;
 }
 
+.belief-section .text-link {
+    color: #F5F5DC;
+    background: #FF5349;
+    padding: 12px 24px;
+    border-radius: 30px;
+    margin-top: 22px;
+    transition: 0.3s ease;
+}
+
+.belief-section .text-link:hover {
+    background: #FF4500;
+    color: #ffffff;
+}
+
 /* PROGRAMMES */
 
 .programmes-section {
@@ -341,7 +356,7 @@ a {
 
 .belief-section {
     padding: 100px 0;
-    background: var(--brown);
+    background: linear-gradient(120deg, #013220, #006400);
     color: white;
     text-align: center;
 }
@@ -596,7 +611,7 @@ footer {
 .page-hero {
     padding: 85px 0;
     color: white;
-    background: linear-gradient(110deg, rgba(25,63,41,.97), rgba(112,69,45,.88));
+    background: linear-gradient(110deg, #013220, #006400);
 }
 
 .page-hero h1 {
